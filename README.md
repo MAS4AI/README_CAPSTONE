@@ -1,3 +1,8 @@
+## Team members:
+- [Lama Alshabani]()
+- [Omar Alsehli Alkhenani]()
+- [Majed Alshnifi](https://www.linkedin.com/in/majed-alshnifi/)
+- [Omar alnasser](https://www.linkedin.com/in/omaralnasser/)
 # Speech Aware
 
 Speech Aware is a project focused on exploring the field of National Security by analyzing voice breakdown. The project incorporates four models to address different aspects related to speech analysis and recognition. These models are speaker recognition, speech enhancement, speech emotion recognition, and lip reading.
