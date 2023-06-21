@@ -62,7 +62,7 @@ The main objectives of the Speech Aware project are as follows:
      
      # AV-Hubert Video Classifier
 
-This script is designed to download, process, and classify video data using a pretrained model from Facebook Research's AV-Hubert. The algorithm leverages deep learning techniques, specifically temporal convolutional networks (TCNs), to recognize and classify video clips. Here is a detailed step-by-step breakdown of the code.
+This script is designed to download, process, and classify video data. The algorithm leverages deep learning techniques, specifically temporal convolutional networks (TCNs), to recognize and classify video clips. Here is a detailed step-by-step breakdown of the code.
 
 ## Preliminaries
 
@@ -70,7 +70,7 @@ The initial block of code navigates to the correct directory and clones the AV-H
 
 ## Download an Example Video
 
-The next block downloads necessary files for video preprocessing including a shape predictor, mean face landmarks, and a sample video from an online source. It extracts the region of interest (ROI) of the video, which in this case is the mouth of the person speaking.
+The next block takes our necessary files for video preprocessing including a shape predictor, mean face landmarks, and a sample video from an online source. It extracts the region of interest (ROI) of the video, which in this case is the mouth of the person speaking.
 
 ## Import a Pre-Trained Model
 
