@@ -16,16 +16,18 @@ In the realm of National Security, understanding and interpreting speech plays a
 The Speech Aware project utilizes the following datasets:
 
 1. **Our Self-Recorded Dataset**:
+   
+   ![Speaker Recognition Image](images/dataset1.png)
    - This dataset was recorded specifically for lips reading and speaker recognition tasks.
    - It consists of audio and video recordings of various individuals speaking.
    - The dataset includes corresponding labels for lips reading and speaker identities.
 
-2. **VoxCeleb Dataset**:
+3. **VoxCeleb Dataset**:
    - The VoxCeleb dataset is used for training and evaluation in the speech enhancement model.
    - It is a large-scale dataset containing audio recordings from various celebrities.
    - The dataset provides clean speech signals for training the speech enhancement model.
 
-3. **Video Dataset with Labeled Emotions**:
+4. **Video Dataset with Labeled Emotions**:
    - This dataset is employed for training and evaluation in the speech emotion recognition model.
    - It comprises video recordings of individuals expressing different emotions while speaking.
    - The dataset includes labeled emotions corresponding to each video.
