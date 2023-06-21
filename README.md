@@ -43,6 +43,38 @@ The main objectives of the Speech Aware project are as follows:
    - Utilizes the SpeechBrain toolkit for speaker recognition tasks.
    - Extracts x-vectors using deep learning techniques like CNNs and RNNs.
    - Provides modules for speaker verification, identification, enrollment, scoring, and classification.
+  
+     # Speech Emotion Recognition Model
+
+This is a deep learning model for speech emotion recognition using the RAVDESS Emotional Speech Audio Dataset.
+
+## Dependencies
+
+The model requires the following libraries:
+
+- Matplotlib
+- Librosa
+- OS
+- SciPy
+- NumPy
+- FastAI
+- glob
+- FetchLabel (a local class you need to define)
+
+The code also uses the `sounddevice` library to record live audio for predictions.
+
+## Process
+
+1. The audio files are loaded using the Librosa library, which is used for music and audio analysis. Each file is converted into a Mel spectrogram, a graphical representation of the spectrum of frequencies of sound as they vary with time.
+
+2. These spectrograms are then converted into decibel units for better audio signal representation.
+
+3. The model extracts features from each audio file, identifies the expressed emotion, and saves the file in a designated folder according to the emotion.
+
+4. A convolutional neural network (CNN) learner from the FastAI library is used to train the model on the spectrogram images. The learner uses a pre-trained ResNet-34 model and is trained for ten epochs.
+
+5. The performance of the model is evaluated using a confusion matrix. The model can also be used to classify live audio recorded via the `sounddevice` library.
+
 
 2. **Speech Enhancement**:
    - Implements speech enhancement techniques to improve speech signal quality.
