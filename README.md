@@ -64,13 +64,15 @@ The underlying architecture of the pretrained model is ECAPA-TDNN (Extended Conn
 
 ## Training
 
-The model was trained on the VoxCeleb dataset, a large-scale speaker recognition dataset that includes over a million utterances from thousands of speakers. The model learns to identify the unique characteristics of each speaker's voice during training, which then allows it to verify the identity of speakers in unseen audio data. 
+The model was initially trained on the VoxCeleb dataset, a large-scale speaker recognition dataset that includes over a million utterances from thousands of speakers. However, to further enhance the model's performance and adapt it to our specific dataset, additional training was conducted using our self-recorded dataset.
 
-The model was trained using a binary cross-entropy loss function, with pairs of voices as inputs and a binary label indicating whether the voices belonged to the same speaker as the output. It was trained for several epochs until the loss on a validation set stopped improving.
+The self-recorded dataset includes audio and video recordings of various individuals speaking, along with corresponding labels for lips reading and speaker identities. By incorporating this dataset during training, the model learned to recognize and verify speakers based on their speech characteristics in a more targeted manner.
+
+The training process involved augmenting the VoxCeleb dataset with our self-recorded dataset and fine-tuning the model on the combined data. This allowed the model to capture the unique characteristics of the speakers in our dataset, improving its accuracy and robustness for speaker verification tasks.
 
 ## Pretrained Model
 
-The pretrained `spkrec-ecapa-voxceleb` model is loaded from SpeechBrain's repository. The pretrained model saves us the time and resources required to train the model from scratch.
+The pretrained `spkrec-ecapa-voxceleb` model, loaded from SpeechBrain's repository, serves as a valuable starting point for the speaker verification model. However, the additional training performed on our dataset to ensures that the model has been fine-tuned to better accommodate the specific speaker characteristics captured in our self-recorded dataset.
 
 ## Speaker Verification
 
@@ -79,12 +81,6 @@ The `verify_files` function compares two audio files and produces a score that r
 ## Output
 
 The model outputs a similarity score (a floating-point number) and a binary prediction (True or False). A higher score indicates a higher likelihood that the two voices belong to the same speaker. The binary prediction is `True` if the model believes the same speaker is present in both files and `False` otherwise.
-
-
-
-
-
-
 
 
 # Speech Enhancement:
@@ -99,15 +95,15 @@ The model outputs a similarity score (a floating-point number) and a binary pred
 
 This is a speaker enhancement model implemented using the SpeechBrain library, specifically designed for the task of audio enhancement.
 
-# Model Architecture
+## Model Architecture
 
 The underlying architecture of the pretrained model is SepFormer, a transformer-based model for speech separation. SepFormer is a cutting-edge model architecture used in audio enhancement tasks.
-# Training
+## Training
 The model was trained on the WHAMR! dataset, a large-scale speech enhancement dataset that includes a wide range of different noisy audios. The model learns to separate the speaker's voice from the background noise during training, which then allows it to enhance the clarity of speakers in unseen audio data.
 The model was trained using a specific loss function optimized for speech enhancement, with noisy audio as inputs and a clean version of the audio as the output. It was trained for several epochs until the performance on a validation set stopped improving.
-# Pretrained Model
+## Pretrained Model
 In this project, we utilize the speechbrain/sepformer-whamr-enhancement model, a pre-trained model that is hosted in the SpeechBrain's repository.
-A pre-trained model is a model that was trained on a large benchmark dataset to solve a problem similar to the one that we want to solve. Accordingly, you can use it to bootstrap your own learning process. This model is trained with the WHAMR! dataset, which is a large-scale, multi-speaker, multi-channel, reverberant dataset for speech separation and recognition.
+A pre-trained model is a model that was trained on a large benchmark dataset to solve a problem similar to the one that we want to solve. Accordingly, you can use it to bootstrap our own learning process. This model is trained with the WHAMR! dataset, which is a large-scale, multi-speaker, multi-channel, reverberant dataset for speech separation and recognition.
 The SepFormer architecture used in this pre-trained model is a state-of-the-art method for speech separation tasks. It is based on the Transformer architecture, which utilizes self-attention mechanisms and has demonstrated remarkable performance in numerous tasks across different domains.
 The advantage of using a pre-trained model is twofold:
 -	Saves time and resources: Training a model from scratch requires a lot of computational resources (high-end GPUs) and can take a significant amount of time, depending on the architecture of the model and the size of the dataset. By using a pre-trained model, we save a lot of time as we don't have to train the model from scratch.
@@ -115,19 +111,10 @@ The advantage of using a pre-trained model is twofold:
 -	Better performance: Pretrained models are usually trained on large datasets with a wide variety of data. Therefore, they capture a wide range of features and patterns, which helps to improve the performance of the model on different tasks.
 For our speaker enhancement model, we load the pre-trained speechbrain/sepformer-whamr-enhancement model from the SpeechBrain repository, which greatly simplifies the enhancement process and saves a significant amount of time and computational resources
 .
-# Audio Enhancement
+## Audio Enhancement
 The Speaker Inhancment function processes an audio file and produces a separated/enhanced audio. It separates the voice components in the provided audio file and enhances the overall quality.
-# Output
+## Output
 The model outputs a clean version of the input audio file with reduced background noise and improved speaker clarity.
-
-
-
-
-
-
-
-
-
 
 
 
