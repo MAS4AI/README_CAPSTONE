@@ -95,10 +95,3 @@ It trains a logistic regression model using the 2D word embeddings and the label
 ## Visual Feature Extraction
 
 Lastly, the algorithm extracts visual features from the video using the pre-trained model. It normalizes the frames, applies a center crop, and converts the frames into a tensor which is processed by the pre-trained model to obtain the final feature vector.
-
-## Note
-
-This explanation covers only the high-level concepts. If you require further information about a specific part of the code or a specific function, please refer to the specific documentation or source code.
-
-
-Please provide the necessary details for the datasets to be used in the project.
