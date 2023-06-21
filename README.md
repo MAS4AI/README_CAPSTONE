@@ -177,34 +177,42 @@ The code also uses the `sounddevice` library to record live audio for prediction
 
 This script is designed to download, process, and classify video data. The algorithm leverages deep learning techniques, specifically temporal convolutional networks (TCNs), to recognize and classify video clips. Here is a detailed step-by-step breakdown of the code.
 
-## Preliminaries
+## Taking an Example Video
 
-The initial block of code navigates to the correct directory and clones the AV-Hubert repository from Facebook Research's GitHub. It initializes and updates any submodules within that repository. This is followed by the installation of various python packages like scipy, sentencepiece, python_speech_features, and scikit-video, which will be used later in the code.
+The script takes the necessary files for video preprocessing, including a shape predictor, mean face landmarks, and a sample video from an online source. The shape predictor and mean face landmarks are used in conjunction to identify and extract the region of interest (ROI) from each frame of the video - in this case, the mouth of the person speaking.
+This process involves detecting facial landmarks, identifying the coordinates of the mouth, and cropping the video to only include the mouth region. This ROI is then passed to the pre-trained model for inference.
 
-## Download an Example Video
-
-The next block takes our necessary files for video preprocessing including a shape predictor, mean face landmarks, and a sample video from an online source. It extracts the region of interest (ROI) of the video, which in this case is the mouth of the person speaking.
 
 ## Import a Pre-Trained Model
 
-This block downloads a pre-trained model checkpoint and performs inference using the model. The inference generates a hypothesis on the contents of the video, specifically predicting the words that are spoken in the video.
+This section downloads a pre-trained AV-Hubert model checkpoint. AV-Hubert is a model trained on a large amount of audio-visual data, and is capable of inferring spoken words from visual inputs. The model is pre-trained, meaning it has already been trained on a vast amount of data and can be used directly for inference.
+The downloaded model is then used to perform inference on the video ROI, generating a hypothesis about the content of the video, specifically predicting the words that are spoken based on the movement of the mouth.
+
 
 ## Inference Process
 
-The inference process involves predicting the spoken words from the mouth ROI. It extracts features from the frames and uses the pre-trained model to generate an output hypothesis. The hypothesis is later split into individual words.
+The inference process begins with the extraction of features from the ROI frames. These features, which capture the visual cues related to speech, are fed into the pre-trained model. The model generates an output hypothesis representing the predicted spoken words.
+The script then processes the output hypothesis, splitting the generated sentence into individual words. This process allows for the classification of each word separately in the next steps.
 
 ## Positive and Negative Word Lists
 
-A list of "good" words and "bad" words are created. These lists will be used to classify the output of the model.
+This section involves creating lists of "good" and "bad" words. The definitions of "good" and "bad" are context-dependent and should be customized based on the specifics of your application. The lists are used to classify the words produced by the model during the inference process.
 
 ## Word Embedding and Clustering
 
-The Sentence Transformers library is used to convert the words into vectors in a high-dimensional space. Then, UMAP (Uniform Manifold Approximation and Projection) is used to reduce the dimension of the vectors to 2D. Afterward, K-means clustering is applied to classify the vectors into two clusters, representing "good" and "bad" words.
+In this step, the sentence transformers library is used to convert the predicted words into vectors in a high-dimensional space. This process is known as word embedding, and it provides a numerical representation of words that captures their semantic meanings.
+Next, the dimensionality of the vectors is reduced to two dimensions using UMAP (Uniform Manifold Approximation and Projection). This step makes the data easier to work with and allows for visualization in a two-dimensional space.
+Following the dimensionality reduction, K-means clustering is applied to the 2D word embeddings. The K-means algorithm partitions the words into two clusters, representing "good" and "bad" words based on their semantic similarity.
+
 
 ## Logistic Regression
 
-It trains a logistic regression model using the 2D word embeddings and the labels obtained from K-means clustering. This model can then be used to predict whether a new word is "good" or "bad".
+The 2D word embeddings and the labels obtained from the K-means clustering are used to train a logistic regression model. The logistic regression model serves as a classifier that can predict whether a new word is "good" or "bad" based on its 2D embedding.
+The logistic regression model is a simple yet effective linear model for binary classification tasks. Once trained, it can be used to predict the classification of unseen words, providing a means of continuous classification as new words are predicted by the AV-Hubert model.
+
 
 ## Visual Feature Extraction
 
-Lastly, the algorithm extracts visual features from the video using the pre-trained model. It normalizes the frames, applies a center crop, and converts the frames into a tensor which is processed by the pre-trained model to obtain the final feature vector.
+Finally, the script extracts visual features from the video using the pre-trained model. The frames are first normalized and cropped to a standard size before being converted into a tensor, a multi-dimensional array structure favored for machine learning tasks.
+The tensorized frames are then passed through the pre-trained model to obtain the final feature vectors. These feature vectors serve as the input to the inference process, allowing the model to generate predictions based on the visual features.
+
