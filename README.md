@@ -59,5 +59,46 @@ The main objectives of the Speech Aware project are as follows:
    - Utilizes AV-HuBERT, a lip reading model based on the SpeechBrain toolkit.
    - Focuses on understanding speech from visual cues, specifically lip movements.
    - Extracts relevant information from lip movements for speech analysis.
+     
+     # AV-Hubert Video Classifier
+
+This script is designed to download, process, and classify video data using a pretrained model from Facebook Research's AV-Hubert. The algorithm leverages deep learning techniques, specifically temporal convolutional networks (TCNs), to recognize and classify video clips. Here is a detailed step-by-step breakdown of the code.
+
+## Preliminaries
+
+The initial block of code navigates to the correct directory and clones the AV-Hubert repository from Facebook Research's GitHub. It initializes and updates any submodules within that repository. This is followed by the installation of various python packages like scipy, sentencepiece, python_speech_features, and scikit-video, which will be used later in the code.
+
+## Download an Example Video
+
+The next block downloads necessary files for video preprocessing including a shape predictor, mean face landmarks, and a sample video from an online source. It extracts the region of interest (ROI) of the video, which in this case is the mouth of the person speaking.
+
+## Import a Pre-Trained Model
+
+This block downloads a pre-trained model checkpoint and performs inference using the model. The inference generates a hypothesis on the contents of the video, specifically predicting the words that are spoken in the video.
+
+## Inference Process
+
+The inference process involves predicting the spoken words from the mouth ROI. It extracts features from the frames and uses the pre-trained model to generate an output hypothesis. The hypothesis is later split into individual words.
+
+## Positive and Negative Word Lists
+
+A list of "good" words and "bad" words are created. These lists will be used to classify the output of the model.
+
+## Word Embedding and Clustering
+
+The Sentence Transformers library is used to convert the words into vectors in a high-dimensional space. Then, UMAP (Uniform Manifold Approximation and Projection) is used to reduce the dimension of the vectors to 2D. Afterward, K-means clustering is applied to classify the vectors into two clusters, representing "good" and "bad" words.
+
+## Logistic Regression
+
+It trains a logistic regression model using the 2D word embeddings and the labels obtained from K-means clustering. This model can then be used to predict whether a new word is "good" or "bad".
+
+## Visual Feature Extraction
+
+Lastly, the algorithm extracts visual features from the video using the pre-trained model. It normalizes the frames, applies a center crop, and converts the frames into a tensor which is processed by the pre-trained model to obtain the final feature vector.
+
+## Note
+
+This explanation covers only the high-level concepts. If you require further information about a specific part of the code or a specific function, please refer to the specific documentation or source code.
+
 
 Please provide the necessary details for the datasets to be used in the project.
