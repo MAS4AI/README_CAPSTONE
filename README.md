@@ -95,9 +95,6 @@ The code also uses the `sounddevice` library to record live audio for prediction
 
 
 
-
-  
-
 # Lip Reading:
 
    <!DOCTYPE html>
@@ -108,12 +105,14 @@ The code also uses the `sounddevice` library to record live audio for prediction
 </head>
 <body>
     <video width="640" height="360" controls>
-        <source src="My Movie 1.mp4" type="video/mp4">
+        <source src="images/MyMovie1.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </body>
 </html>
 
+   [![Lip Reading Video](images/Picture4.png)](images/MyMovie1.mp4)
+   
    ![Speaker Recognition Image](images/Picture4.png)
    - Utilizes AV-HuBERT, a lip reading model based on the SpeechBrain toolkit.
    - Focuses on understanding speech from visual cues, specifically lip movements.
