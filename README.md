@@ -43,8 +43,20 @@ The main objectives of the Speech Aware project are as follows:
    - Utilizes the SpeechBrain toolkit for speaker recognition tasks.
    - Extracts x-vectors using deep learning techniques like CNNs and RNNs.
    - Provides modules for speaker verification, identification, enrollment, scoring, and classification.
-  
-     # Speech Emotion Recognition Model
+
+2. **Speech Enhancement**:
+   - Implements speech enhancement techniques to improve speech signal quality.
+   - Relies on the SpeechBrain toolkit for speech enhancement tasks.
+   - Trains CNNs and RNNs on labeled datasets of noisy and clean speech signals.
+   - Real-time suppression of background noise during speech enhancement.
+
+3. **Speech Emotion Recognition**:
+   - Leverages Convolutional Neural Networks (CNNs) for feature extraction.
+   - Analyzes spectrograms or time-frequency representations of speech signals.
+   - Identifies emotions expressed in speech for emotional content analysis.
+
+
+# Speech Emotion Recognition Model
 
 This is a deep learning model for speech emotion recognition using the RAVDESS Emotional Speech Audio Dataset.
 
@@ -76,18 +88,11 @@ The code also uses the `sounddevice` library to record live audio for prediction
 5. The performance of the model is evaluated using a confusion matrix. The model can also be used to classify live audio recorded via the `sounddevice` library.
 
 
-2. **Speech Enhancement**:
-   - Implements speech enhancement techniques to improve speech signal quality.
-   - Relies on the SpeechBrain toolkit for speech enhancement tasks.
-   - Trains CNNs and RNNs on labeled datasets of noisy and clean speech signals.
-   - Real-time suppression of background noise during speech enhancement.
 
-3. **Speech Emotion Recognition**:
-   - Leverages Convolutional Neural Networks (CNNs) for feature extraction.
-   - Analyzes spectrograms or time-frequency representations of speech signals.
-   - Identifies emotions expressed in speech for emotional content analysis.
 
-4. **Lip Reading**:
+  
+
+5. **Lip Reading**:
    - Utilizes AV-HuBERT, a lip reading model based on the SpeechBrain toolkit.
    - Focuses on understanding speech from visual cues, specifically lip movements.
    - Extracts relevant information from lip movements for speech analysis.
