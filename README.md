@@ -1,6 +1,6 @@
 ## Team members:
-- [Lama Alshabani]()
-- [Omar Alsehli Alkhenani]()
+- [Lama Alshabani](https://www.linkedin.com/in/lama-alshabani-78b218230)
+- [Omar Alsehli Alkhenani](http://linkedin.com/in/omar-k-alsehli-alkhenani-b037b0213)
 - [Majed Alshnifi](https://www.linkedin.com/in/majed-alshnifi/)
 - [Omar alnasser](https://www.linkedin.com/in/omaralnasser/)
 # Speech Aware
@@ -215,4 +215,21 @@ The logistic regression model is a simple yet effective linear model for binary 
 
 Finally, the script extracts visual features from the video using the pre-trained model. The frames are first normalized and cropped to a standard size before being converted into a tensor, a multi-dimensional array structure favored for machine learning tasks.
 The tensorized frames are then passed through the pre-trained model to obtain the final feature vectors. These feature vectors serve as the input to the inference process, allowing the model to generate predictions based on the visual features.
+
+# In conclusion,
+the Speech Aware project focuses on exploring the field of National Security by analyzing voice breakdown. The project incorporates four models: speaker recognition, speech enhancement, speech emotion recognition, and lip reading.
+
+The speaker recognition model aims to identify and verify individuals based on their speech characteristics. It utilizes the SpeechBrain toolkit and the ECAPA-TDNN architecture for training and inference. The model is fine-tuned using a combination of the VoxCeleb dataset and a self-recorded dataset, enabling accurate speaker verification and identification.
+
+The speech enhancement model improves the quality and intelligibility of speech signals corrupted by noise, reverberation, or other distortions. It employs the SepFormer architecture, a transformer-based model, trained on the WHAMR! dataset. The model separates the speaker's voice from background noise, enhancing the clarity of speakers in audio recordings.
+
+The speech emotion recognition model utilizes Convolutional Neural Networks (CNNs) to analyze spectrograms or time-frequency representations of speech signals. It identifies emotions expressed in speech, enabling emotional content analysis for National Security applications.
+
+The lip reading model employs AV-HuBERT, a lip reading model based on the SpeechBrain toolkit. It focuses on understanding speech from visual cues by analyzing lip movements and extracting relevant information. Lip reading serves as an alternative means of speech analysis when audio is unavailable or compromised.
+
+Overall, the Speech Aware project addresses various challenges in speech analysis and recognition, providing valuable insights for National Security applications such as speaker identification, speech enhancement, emotion analysis, and lip reading.
+
+
+
+
 
