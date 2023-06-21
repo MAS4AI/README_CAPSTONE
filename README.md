@@ -39,24 +39,30 @@ The main objectives of the Speech Aware project are as follows:
 
 ## Categories for the Four Models
 
-1. **Speaker Recognition**:
+# Speaker Recognition:
+   
+   ![Speaker Recognition Image](images/Picture1.png)
    - Utilizes the SpeechBrain toolkit for speaker recognition tasks.
    - Extracts x-vectors using deep learning techniques like CNNs and RNNs.
    - Provides modules for speaker verification, identification, enrollment, scoring, and classification.
 
-2. **Speech Enhancement**:
+# Speech Enhancement:
+
+   ![Speaker Recognition Image](images/Picture2.png)
    - Implements speech enhancement techniques to improve speech signal quality.
    - Relies on the SpeechBrain toolkit for speech enhancement tasks.
    - Trains CNNs and RNNs on labeled datasets of noisy and clean speech signals.
    - Real-time suppression of background noise during speech enhancement.
 
-3. **Speech Emotion Recognition**:
+# Speech Emotion Recognition Model
+
+   ![Speaker Recognition Image](images/Picture3.png)
    - Leverages Convolutional Neural Networks (CNNs) for feature extraction.
    - Analyzes spectrograms or time-frequency representations of speech signals.
    - Identifies emotions expressed in speech for emotional content analysis.
 
 
-# Speech Emotion Recognition Model
+
 
 This is a deep learning model for speech emotion recognition using the RAVDESS Emotional Speech Audio Dataset.
 
@@ -92,7 +98,23 @@ The code also uses the `sounddevice` library to record live audio for prediction
 
   
 
-5. **Lip Reading**:
+# Lip Reading:
+
+   <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lip Reading Video</title>
+</head>
+<body>
+    <video width="640" height="360" controls>
+        <source src="My Movie 1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
+
+   ![Speaker Recognition Image](images/Picture4.png)
    - Utilizes AV-HuBERT, a lip reading model based on the SpeechBrain toolkit.
    - Focuses on understanding speech from visual cues, specifically lip movements.
    - Extracts relevant information from lip movements for speech analysis.
