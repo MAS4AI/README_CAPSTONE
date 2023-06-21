@@ -97,28 +97,19 @@ The code also uses the `sounddevice` library to record live audio for prediction
 
 # Lip Reading:
 
-   <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Lip Reading Video</title>
-</head>
-<body>
-    <video width="640" height="360" controls>
-        <source src="images/MyMovie1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</body>
-</html>
 
-   [![Lip Reading Video](images/Picture4.png)](images/MyMovie1.mp4)
+
+   <p align="center">
+  <img src="images/ezgif.com-video-to-gif.gif" alt="GIF Image">
+</p>
    
-   ![Speaker Recognition Image](images/Picture4.png)
+   
    - Utilizes AV-HuBERT, a lip reading model based on the SpeechBrain toolkit.
    - Focuses on understanding speech from visual cues, specifically lip movements.
    - Extracts relevant information from lip movements for speech analysis.
      
-     # AV-Hubert Video Classifier
+   ![Speaker Recognition Image](images/Picture4.png)
+
 
 This script is designed to download, process, and classify video data. The algorithm leverages deep learning techniques, specifically temporal convolutional networks (TCNs), to recognize and classify video clips. Here is a detailed step-by-step breakdown of the code.
 
